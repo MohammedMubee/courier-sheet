@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courier information</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+           font-family: Arial, sans-serif;
+           background-color: burlywood;
+           
+           
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 30px;
+          
+        }
+        th, td {
+            border: 1px solid #ff000000;
+            text-align: left;
+            padding: 7px;
+            border-color: black;
+            
+        }
+        th {
+            background-color: #ff00003b;
+        }
+        td {
+            background-color: antiquewhite;
+        }
+        select.custom-select {
+            width: 200px; 
+            height: 30px; 
+        }
+        textarea {
+        border: 2px solid black; /* Increase border size */
+        padding: 5px; /* Add padding to create space */
+    }
+     
+    </style>
+</head>
+<body>
+    
+    <div style="justify-content: space-between;">
+        <div style="flex: 1;">
+        <br>
+          <br>
+          <br>
+          <br>
+          <form id="form" method="post" autocomplete="off" name="google-sheet">
+          <table>
+            <tr>
+                
+                <th colspan="2"><img src="images/img2.jpg" width="450px"; height="180px"/>
+                </th>
+                <th>
+                               
+                    <select class="custom-select" name="courierType">
+                    <option value="ST courier"> ST courier</option>
+                    <option value="xxx courier">xxx courier</option>
+                    <option value="yyy courier">yyy courier</option>
+                    <option value="xxb courier">xxb courier</option>
+                    <option value="aaa courier">aaa courier </option>
+                    </select>
+                        
+                    </th>
+                    <th id="receivedBarcode">
+                        <svg id="receivedbarcodecontainer" width="150" height="50"></svg>
+                    </th>
+
+                <tr>
+                    
+                    <td colspan="2">Date of booking:<input type="date" id="date" name="date" required></td>
+                    <td colspan="2">AirwayBill no:<input type="text" id="receivedAirwayBill" name="receiverAirwayBill"> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Reciver Details:</td>
+                    
+                    <td colspan="2">Sender Details</td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="2"><textarea id="message" name="message" rows="4" required></textarea>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </td>
+                <td colspan="2"><textarea id="message" name="message" rows="4" required></textarea>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                   
+
+                </tr>
+                <tr>
+                    
+                    <td>No.of.pcs<input type="number" id="noofpice" name="noofpice"></td>
+                    <td>Quanity<input type="number" id="Quanity" name="Quanity"></td>
+                    <td>Shipment index <input type="number" name="ShipmentIndex"></td>
+                    <td>amount<input type="number" id="amount" name="amount"></td>
+
+                </tr>
+                <tr>
+                    <td colspan="4"  style="text-align: center;">Any Shipment any where Everywhere here Shipment</td>
+                </tr>
+            </table>
+            
+            <button type="submit" id="submit" name="submit">Book The Shipment</button><br>
+            </form>
+                <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>        
+        <script src="script.js"></script> 
+        <script src="https://apis.google.com/js/api.js"></script>
+      
+</body>
+</html>
