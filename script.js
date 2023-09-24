@@ -1,15 +1,15 @@
-// function setSenderTabIndexes() {
-//   document.getElementById("date").tabIndex = 1;
+function setSenderTabIndexes() {
+   document.getElementById("date").tabIndex = 1;
 //   document.getElementById("mobileNo").tabIndex = 3;
-//   document.getElementById("subject").tabIndex = 5;
+  document.getElementById("subject").tabIndex = 5;
 //   document.getElementById("senderemailid").tabIndex = 9;
-//   document.getElementById("message").tabIndex = 7;
+  document.getElementById("message").tabIndex = 7;
 //   // Add more elements as needed
-// }
+}
 
 // // Function to set tabindex for receiver elements
-// function setReceiverTabIndexes() {
-//   document.getElementById("receivedAirwayBill").tabIndex = 2;
+ function setReceiverTabIndexes() {
+   document.getElementById("receivedAirwayBill").tabIndex = 2;
 //   document.getElementById("receivedDate").tabIndex = 4;
 //   document.getElementById("receivedMobileNo").tabIndex = 6;
 //   document.getElementById("receivedSubject").tabIndex = 8;
@@ -17,11 +17,11 @@
 //   document.getElementById("receivedMessage").tabIndex = 12;
 //   document.getElementById("receiveremailid").tabIndex = 14;
 //   document.getElementById("receivedAmount").tabIndex = 15;
-// }
+ }
 
 // // Call the functions to set tab indexes
-// setSenderTabIndexes();
-// setReceiverTabIndexes();
+ setSenderTabIndexes();
+ setReceiverTabIndexes();
 
 // let date = document.getElementById("date").value;
 // let mobilenumber = document.getElementById("mobileNo").value;
@@ -50,3 +50,54 @@ function displayBarcode() {
       height: 60,
   });
 }
+const courierSelect = document.getElementById("courierSelect");
+courierSelect.onchange = function (e) {
+    const selectedValue = e.target.value;
+    console.log(selectedValue)
+    console.log(e)
+    const companyImage = document.getElementById("companyImage");
+    switch (selectedValue) {
+        case "ST courier":
+            companyImage.src = "./images/dtdc.webp";
+            break;
+        case "xxx courier":
+            companyImage.src = "./images/foot-logo.png";
+            break;
+        case "yyy courier":
+            companyImage.src = "yyy_courier_logo.jpg";
+            break;
+        case "xxb courier":
+            companyImage.src = "xxb_courier_logo.jpg";
+            break;
+        case "aaa courier":
+            companyImage.src = "images/images.jpeg";
+            break;
+        default:
+            companyImage.src = "images/red3.jpg";
+    }
+}
+
+courierSelect.addEventListener("change", function (e) {
+    const selectedValue = e.target.value;
+    console.log(selectedValue)
+    const companyImage = document.getElementById("companyImage");
+    switch (selectedValue) {
+        case "ST courier":
+            companyImage.src = "./images/dtdc.webp";
+            break;
+        case "xxx courier":
+            companyImage.src = "./images/foot-logo.png";
+            break;
+        case "yyy courier":
+            companyImage.src = "yyy_courier_logo.jpg";
+            break;
+        case "xxb courier":
+            companyImage.src = "xxb_courier_logo.jpg";
+            break;
+        case "aaa courier":
+            companyImage.src = "images/images.jpeg";
+            break;
+        default:
+            companyImage.src = "images/red3.jpg";
+    }
+});
