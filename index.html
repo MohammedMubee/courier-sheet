@@ -67,9 +67,9 @@
                     </select>
                         
                     </th>
-                    <th id="receivedBarcode">
+                    <td id="receivedBarcode">
                         <svg id="receivedbarcodecontainer" width="150" height="50"></svg>
-                    </th>
+                    </td>
 
                 <tr>
                     
@@ -119,6 +119,17 @@
                 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>        
         <script src="script.js"></script> 
         <script src="https://apis.google.com/js/api.js"></script>
+        <script>
+             function displayBarcode() {
+            const airwayBillNo = document.getElementById('receivedAirwayBill').value;
+            JsBarcode("#receivedbarcodecontainer", airwayBillNo, {
+                format: "CODE128",
+                width: 2,
+                height: 60,
+            });
+        }
+        document.getElementById('receivedAirwayBill').addEventListener('input', displayBarcode);
+        </script>
       
 </body>
 </html>
