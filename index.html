@@ -15,11 +15,11 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
           
         }
         th, td {
-            border: 1px solid #ff000000;
+            border: 3px solid #ff000000;
             text-align: left;
             padding: 7px;
             border-color: black;
@@ -29,15 +29,65 @@
             background-color: #ff00003b;
         }
         td {
-            background-color: antiquewhite;
+            background-color: wheat;
         }
         select.custom-select {
-            width: 200px; 
+            width: 100px; 
             height: 30px; 
         }
         textarea {
         border: 2px solid black; /* Increase border size */
         padding: 5px; /* Add padding to create space */
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Style for the dropdown button */
+    .dropdown-button {
+      background-color: blanchedalmond;
+      color: black;
+      padding: 10px 80px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Style for the selected image */
+    .selected-image {
+      max-width: 120px; /* Adjust image size as needed */
+      margin-right: 10px; /* Add space between image and text */
+    }
+
+    /* Style for the dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: sandybrown;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Style for dropdown items */
+    .dropdown-item {
+      padding: 15px;
+      text-decoration: none;
+      display: block;
+      color: bisque;
+      display: flex;
+      align-items: center; /* Align text and image vertically */
+    }
+
+    /* Hover effect for dropdown items */
+    .dropdown-item:hover {
+      background-color: slategrey;
+    }
+
+    /* Show the dropdown content when hovering over the dropdown button */
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
      
     </style>
@@ -53,23 +103,45 @@
           <form id="form" method="post" autocomplete="off" name="google-sheet">
           <table>
             <tr>
-                
-                <th colspan="2"><img src="images/img2.jpg" width="450px"; height="180px"/>
+                 <th colspan="2"><img src="images/img2.jpg" width="50%" height="80"/>
                 </th>
                 <th>
                                
-                    <select class="custom-select" name="courierType" id="courierSelect">
-                        <option value="ST courier">ST courier</option>
-                        <option value="xxx courier">xxx courier</option>
-                        <option value="yyy courier">yyy courier</option>
-                        <option value="xxb courier">xxb courier</option>
-                        <option value="aaa courier">aaa courier</option>
-                    </select>
-                    <img src="images/red3.jpg" alt="Courier Company Logo" id="companyImage">
-                    
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                          <p>
+                          <img class="selected-image" src="images/red3.jpg" alt="Selected courier" style="float: left;" width="80%" height="50%">
+                          Selected Image
+                          </p>
+                        </button>
+                        <div class="dropdown-content">
+                          <a class="dropdown-item" href="#"  >
+                           <p> ST courier
+                            <img src="images/foot-logo.png" alt="ST courier" style="float: left;">
+                           </p>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <!-- <img src="images/png-transparent-dtdc-courier-delivery-company-service-delivery-service-blue-freight-transport-company.png" alt="ddd courier"> -->
+                            <!-- ddd courier -->
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <img src="images/download - Copy.png" alt="ccc courier">
+                            ccc courier
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <img src="" alt="bbb courier">
+                            bbb courier
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <img src="images/img2.jpg" alt="aaa courier">
+                            aaa courier
+                          </a>
+                        </div>
+                      </div>
+                        
                     </th>
-                    <td id="receivedBarcode">
-                        <svg id="receivedbarcodecontainer" width="150" height="50"></svg>
+                    <td id="receivedBarcode"; style="background-color:  #ff00003b;">
+                        <svg id="receivedbarcodecontainer" width="80" height="30" ></svg>
                     </td>
 
                 <tr>
@@ -84,25 +156,31 @@
                     
                 </tr>
                 <tr>
-                    <td colspan="2"><textarea id="message" name="message" rows="4" required></textarea>
+                  <td colspan="2">Mobile No :<input type="number" id="mobileNO" name="senderMobileNo"></td>
+                  <td colspan="2">Mobile No:<input type="number" id="mobileNOR" name="ReciverMobile"></td>
+                </tr>
+                
+          
+                
+                <tr>
+                    <td colspan="2" >
+                      <input type="number" id="number">
+                      <textarea id="message" name="message" rows="4" required></textarea>
                     <br>
                     <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    
+                   
                 </td>
                 <td colspan="2"><textarea id="message" name="message" rows="4" required></textarea>
                     <br>
                     <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                   
-
-                </tr>
+                     </tr>
                 <tr>
+
+                <tr>
+                  <td colspan="2">Email:<input type="email" id="senderEmail" name="senderEmail"></td>
+                  <td colspan="2">Email: <input type="email" id="ReciverEmail" name="receivierEmail"></td>
+                </tr>
                     
                     <td>No.of.pcs<input type="number" id="noofpice" name="noofpice"></td>
                     <td>Quanity<input type="number" id="Quanity" name="Quanity"></td>
@@ -111,11 +189,10 @@
 
                 </tr>
                 <tr>
-                    <td colspan="4"  style="text-align: center;">Any Shipment any where Everywhere here Shipment</td>
+                    <td colspan="4"  style="text-align: center; background-color:tan; "><h3>Any Shipment Anywhere We Are Here</h3></td>
                 </tr>
-            </table>
-            
-            <button type="submit" id="submit" name="submit">Book The Shipment</button><br>
+            </table><button type="submit" id="submit" name="submit" style="background-color: sandybrown ; width: 200px; " >Book The Shipment</button>
+             
             </form>
                 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>        
         <script src="script.js"></script> 
@@ -131,6 +208,18 @@
         }
         document.getElementById('receivedAirwayBill').addEventListener('input', displayBarcode);
         </script>
+          <script>
+   
+            const dropdownContent = document.querySelector('.dropdown-content');
+            const selectedImage = document.querySelector('.selected-image');
+        
+            dropdownContent.addEventListener('click', (event) => {
+              if (event.target.tagName === 'IMG') {
+                const selectedImageSrc = event.target.src;
+                selectedImage.src = selectedImageSrc;
+              }
+            });
+          </script>
       
 </body>
 </html>
